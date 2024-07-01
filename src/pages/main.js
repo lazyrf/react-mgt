@@ -28,17 +28,17 @@ const Main = () => {
                     items={[
                         {
                             key: '1',
-                            ion: <UserOutlined />,
+                            icon: <UserOutlined />,
                             label: 'nav 1',
                         },
                         {
                             key: '2',
-                            ion: <VideoCameraOutlined />,
+                            icon: <VideoCameraOutlined />,
                             label: 'nav 2',
                         },
                         {
                             key: '3',
-                            ion: <UploadOutlined />,
+                            icon: <UploadOutlined />,
                             label: 'nav 3',
                         },
                     ]}
