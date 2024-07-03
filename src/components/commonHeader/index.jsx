@@ -10,6 +10,9 @@ import './index.css';
 const {Header} = Layout;
 
 const CommonHeader = () => {
+    const logout = () => {
+    };
+
     const items = [
         {
             key: '1',
