@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import {Button, Layout, Menu, theme} from 'antd';
 import CommonAside from '../components/commonAside';
+import CommandHeader from '../components/commonHeader';
 
 const {Header, Content, Footer, Sider} = Layout;
 
@@ -26,21 +27,7 @@ const Main = () => {
             <CommonAside />
 
             <Layout>
-                <Header
-                    style={{
-                        padding: 0,
-                            background: colorBgContainer,
-                    }}
-                >
-                    <Button
-                        type="text"
-                        style={{
-                            fontSize: '16px',
-                            width: 64,
-                            height: 64,
-                        }}
-                    />
-                </Header>
+                <CommandHeader />
                 <Content
                     style={{
                         margin: '24px 16px',
