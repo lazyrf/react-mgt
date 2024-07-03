@@ -1,14 +1,33 @@
 import React, {useState} from 'react';
-import {Button, Layout, Avatar} from 'antd';
+import {Button, Layout, Avatar, Dropdown} from 'antd';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
+    SimleOutlined
 } from '@ant-design/icons';
 import './index.css';
 
-const {Header, Content, Footer, Sider} = Layout;
+const {Header} = Layout;
 
 const CommonHeader = () => {
+    const items = [
+        {
+            key: '1',
+            label: (
+                <a target="_blank" rel="noopener noreferrer">
+                    個人中心
+                </a>
+            ),
+        },
+        {
+            key: '2',
+            label: (
+                <a onClick={logout} target="_blank" rel="noopener noreferrer">
+                    退出
+                </a>
+            ),
+        },
+    ];
     return (
         <Header className="header-container">
             <Button
@@ -21,7 +40,10 @@ const CommonHeader = () => {
                     backgroundColor: '#fff',
                 }}
             />
-            <Avatar size={36} src={<img src={require('../../assets/images/avatar.jpeg')} />}/>
+            <Dropdown
+                menu={{items}}>
+                <Avatar size={36} src={<img src={require('../../assets/images/avatar.jpeg')} />}/>
+            </Dropdown>
         </Header>
     );
 };
