@@ -9,7 +9,7 @@ import './index.css';
 
 const {Header} = Layout;
 
-const CommonHeader = () => {
+const CommonHeader = ({collapsed}) => {
     const logout = () => {
     };
 
@@ -31,17 +31,23 @@ const CommonHeader = () => {
             ),
         },
     ];
+
+    const setCollapse = () => {
+        console.log('collapsed=', collapsed);
+    };
+
     return (
         <Header className="header-container">
             <Button
                 type="text"
-                icon={<MenuFoldOutlined />}
+                icon={collapsed ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />}
                 style={{
                     fontSize: '16px',
                     width: 64,
                     height: 32,
                     backgroundColor: '#fff',
                 }}
+                onClick={setCollapse}
             />
             <Dropdown
                 menu={{items}}>
