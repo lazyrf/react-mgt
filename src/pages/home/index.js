@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Row, Col, Card} from 'antd';
 import './home.css';
+import {getData} from '../../api';
 
 const Home = () => {
+    useEffect(() => {
+        getData().then((res) => {
+            console.log(res);
+        });
+    }, []);
+
     return (
         <Row className="home">
             <Col span={8}>
