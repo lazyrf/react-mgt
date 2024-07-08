@@ -89,13 +89,13 @@ const homeData = {
                 },
                 tableData: [
                     {
-                        name: 'oppo',
+                        name: 'Oppo',
                         todayBuy: 500,
                         monthBuy: 3500,
                         totalBuy: 22000
                     },
                     {
-                        name: 'vivo',
+                        name: 'Vivo',
                         todayBuy: 300,
                         monthBuy: 2200,
                         totalBuy: 24000
