@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {Button, Layout, Avatar, Dropdown} from 'antd';
 import {
     MenuFoldOutlined,
@@ -6,10 +7,13 @@ import {
     SimleOutlined
 } from '@ant-design/icons';
 import './index.css';
+import {collapseMenu} from '../../store/reducers/tab';
 
 const {Header} = Layout;
 
 const CommonHeader = ({collapsed}) => {
+    const dispatch = useDispatch();
+
     const logout = () => {
     };
 
@@ -33,7 +37,7 @@ const CommonHeader = ({collapsed}) => {
     ];
 
     const setCollapse = () => {
-        console.log('collapsed=', collapsed);
+        dispatch(collapseMenu());
     };
 
     return (

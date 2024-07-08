@@ -30,12 +30,11 @@ const items = MenuConfig.map(menu => {
     return child;
 });
 
-const CommonAside = () => {
-    const [collapsed, setCollapsed] = useState(false);
+const CommonAside = ({collapsed}) => {
 
     return (
         <Sider trigger={null} collapsible collapsed={collapsed}>
-            <h3 className="app-name">通用後台管理系統</h3>
+            <h3 className="app-name">{ collapsed ? '後台' : '通用後台管理系統'}</h3>
             <Menu
                 theme="dark"
                 mode="inline"
