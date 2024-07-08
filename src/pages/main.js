@@ -14,8 +14,6 @@ import {useSelector} from 'react-redux';
 
 const {Header, Content, Footer, Sider} = Layout;
 
-                        // onClick={() => setCollapsed(!collapsed)}
-
 const Main = () => {
     // const [collapsed, setCollapsed] = useState(false);
     const {
