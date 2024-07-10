@@ -56,10 +56,14 @@ const normalOption = {
 const ECharts = ({style, chartData, isAxisChart = true}) => {
     const chartRef = useRef();
     const echartInstance = useRef(null);
+    const initRef = useRef(false);
 
     useEffect(() => {
         let options;
-        echartInstance.current = echarts.init(chartRef.current);
+        if (!initRef.current) {
+            echartInstance.current = echarts.init(chartRef.current);
+            initRef.current = true;
+        }
         if(isAxisChart) {
             axisOption.xAxis.data = chartData.xData;
             axisOption.series = chartData.series;
