@@ -71,7 +71,7 @@ const Home = () => {
 
     useEffect(() => {
         getData().then(({data}) => {
-            const {tableData, orderData} = data.data;
+            const {tableData, orderData, userData, videoData} = data.data;
             setTableData(tableData);
 
             // 對於echarts數據的組裝
@@ -89,7 +89,30 @@ const Home = () => {
                 order: {
                     xData,
                     series,
-                }
+                },
+                user: {
+                    xData: userData.map(item => item.data),
+                    series: [
+                        {
+                            name: '新增用戶',
+                            data: userData.map(item => item.new),
+                            type: 'bar',
+                        },
+                        {
+                            name: '活躍用戶',
+                            data: userData.map(item => item.active),
+                            type: 'bar',
+                        }
+                    ],
+                },
+                video: {
+                    series: [
+                        {
+                            data: videoData,
+                            type: 'pie',
+                        }
+                    ]
+                },
             });
         });
     }, []);
@@ -133,6 +156,10 @@ const Home = () => {
                     }
                 </div>
                 {echartData.order && <MyEcharts chartData={echartData.order} style={{height: '280px'}} />}
+                <div className="graph">
+                    {echartData.user && <MyEcharts chartData={echartData.user} style={{height: '280px', width: '50%'}} />}
+                    {echartData.video && <MyEcharts chartData={echartData.video} isAxisChart={false} style={{height: '260px', width: '50%'}} />}
+                </div>
             </Col>
         </Row>
     );
