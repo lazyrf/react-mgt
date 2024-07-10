@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import * as Icon from '@ant-design/icons';
 import {Button, Layout, Menu, theme} from 'antd';
 import MenuConfig from '../../config';
+import {useNavigate} from 'react-router-dom';
 
 const {Header, Content, Footer, Sider} = Layout;
 
@@ -31,6 +32,12 @@ const items = MenuConfig.map(menu => {
 });
 
 const CommonAside = ({collapsed}) => {
+    const navigate = useNavigate();
+
+    const selectMenu = (e) => {
+        console.log(e);
+        navigate(e.key);
+    };
 
     return (
         <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -43,6 +50,7 @@ const CommonAside = ({collapsed}) => {
                 style={{
                     height: '100%',
                 }}
+                onClick={selectMenu}
             />
         </Sider>
     );
