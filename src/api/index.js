@@ -14,3 +14,27 @@ export const getUser = params => {
         params
     });
 };
+
+export const createUser = data => {
+    return http.request({
+        url: '/user/createUser',
+        method: 'post',
+        data
+    });
+};
+
+export const editUser = data => {
+    return http.request({
+        url: '/user/editUser',
+        method: 'post',
+        data
+    });
+};
+
+export const deleteUser = data => {
+    return http.request({
+        url: '/user/deleteUser',
+        method: 'post',
+        data
+    });
+};

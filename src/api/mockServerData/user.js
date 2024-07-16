@@ -46,7 +46,60 @@ const user = {
             count: mockList.length,
             list: pageList,
         }
-    }
+    },
+    createUser: config => {
+        const {name, addr, age, birth, sex} = JSON.parse(config.body);
+        list.unshift({
+            id: Mock.Random.guid(),
+            name,
+            addr,
+            age,
+            birth,
+            sex
+        });
+        return {
+            code: 20000,
+            data: {
+                message: '添加成功'
+            },
+        };
+    },
+    updateUser: config => {
+        const {id, name, addr, age, birth, sex} = JSON.parse(config.body);
+        const sex_num = parseInt(sex);
+        list.some(u => {
+            if (u.id === id) {
+                u.name = name;
+                u.addr = addr;
+                u.age = age;
+                u.birth = birth;
+                u.sex = sex_num;
+                return true;
+            }
+            return false;
+        });
+        return {
+            code: 20000,
+            data: {
+                message: '編輯成功'
+            },
+        };
+    },
+    deleteUser: config => {
+        const {id} = JSON.parse(config.body);
+        if (!id) {
+            return {
+                code: -999,
+                message: '參數不正確',
+            };
+        } else {
+            list = list.filter(u => u.id !== id);
+            return {
+                code: 20000,
+                message: '刪除成功',
+            }
+        }
+    },
 };
 
 export default user;
