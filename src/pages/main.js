@@ -10,6 +10,7 @@ import {
 import {Button, Layout, Menu, theme} from 'antd';
 import CommonAside from '../components/commonAside';
 import CommandHeader from '../components/commonHeader';
+import CommonTag from '../components/commonTag';
 import {useSelector} from 'react-redux';
 
 const {Header, Content, Footer, Sider} = Layout;
@@ -28,6 +29,7 @@ const Main = () => {
 
             <Layout>
                 <CommandHeader collapsed={collapsed}/>
+                <CommonTag/>
                 <Content
                     style={{
                         margin: '24px 16px',
