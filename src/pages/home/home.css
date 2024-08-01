@@ -18,7 +18,7 @@
     border-bottom: 1px solid #ccc;
 }
 
-.home .login-info {
+.home .login-info p {
     line-height: 28px;
     font-size: 14px;
     color: #999;

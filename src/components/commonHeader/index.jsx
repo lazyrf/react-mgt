@@ -8,13 +8,18 @@ import {
 } from '@ant-design/icons';
 import './index.css';
 import {collapseMenu} from '../../store/reducers/tab';
+import {useNavigate} from 'react-router-dom';
 
 const {Header} = Layout;
 
 const CommonHeader = ({collapsed}) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const logout = () => {
+        // 清除token
+        localStorage.removeItem('token');
+        navigate('/login');
     };
 
     const items = [
